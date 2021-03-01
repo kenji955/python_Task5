@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>eelテスト</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <h2>eelテスト</h2>
+        <script type="text/javascript" src="./eel.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+
+        <script>
+            // 大まかな処理の流れ
+            // 入力内容をfor文で取得。配列に格納する。
+            // 配列に格納するのは個数が１以上の項目の「商品コード、価格、個数」。
+            // 文字列と合計金額を生成して、
+            // この処理はインプットの内容が変更されるごとに実行される。inputタグに仕込む
+        </script>
+
+        <script>
+            // ツール実行時にファイルを読み込み、商品選択欄にファイルの内容を自動表示する関数
+            window.onload = init();
+        </script>
+
+        <script type="text/javascript">
+            eel.expose(view_log_js);
+            // ログに処理内容を書き足す処理
+            function view_log_js(text) {
+                document.getElementById("log").value =
+                    document.getElementById("log").value + "\n" + text;
+            }
+        </script>
+
+        <script>
+            function check() {
+                if (document.getElementById("saerch_keyword").value == "") {
+                    //条件に一致する場合(メールアドレスが空の場合)
+                    alert("検索ワードを入力してください"); //エラーメッセージを出力
+                } else {
+                    //条件に一致しない場合(メールアドレスが入力されている場合)
+                    element = document.getElementById("target");
+                    radioNodeList = element.add_flg;
+                    add_flg = radioNodeList.value;
+                    eel.kimetsu_search(
+                        saerch_keyword.value,
+                        output_file.value,
+                        add_flg
+                    );
+                }
+            }
+        </script>
+
+        <div id="table"></div>
+
+        <br />
+        ご注文内容確認欄
+        <br />
+        <div id="order_table"></div>
+        <br />
+        お預かり金額
+        <br />
+        <input placeholder="半角数字で入力" type="number" id="money" min="0" />
+        <input type="button" value="発注" onclick="order_calc()" />
+        <br />
+        <br />
+        <textarea id="order_result" readonly class="order_result"></textarea>
+
+        <!-- ↓onClickイベントを追加 -->
+        <br />
+    </body>
+</html>
